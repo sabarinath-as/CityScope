@@ -1,0 +1,184 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           #f8f9fc;
+  --bg-card:      #ffffff;
+  --bg-raised:    #f1f3f9;
+  --bg-hover:     #f5f7ff;
+  --border:       #e8eaf2;
+  --border-dark:  #d0d4e8;
+
+  --accent:       #5b6af0;
+  --accent-hover: #4757e0;
+  --accent-light: #eef0fe;
+  --accent-dim:   rgba(91,106,240,0.1);
+
+  --green:        #12b76a;
+  --green-light:  #ecfdf3;
+  --yellow:       #f79009;
+  --yellow-light: #fffaeb;
+  --red:          #f04438;
+  --red-light:    #fef3f2;
+  --purple:       #7c3aed;
+  --purple-light: #f5f3ff;
+  --orange:       #ef6820;
+  --orange-light: #fff4ed;
+
+  --text:         #101828;
+  --text-muted:   #475467;
+  --text-dim:     #98a2b3;
+
+  --font-display: 'Outfit', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  --radius:    16px;
+  --radius-sm: 10px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  --shadow-xs: 0 1px 2px rgba(16,24,40,0.05);
+  --shadow:    0 1px 8px rgba(16,24,40,0.06), 0 1px 2px rgba(16,24,40,0.04);
+  --shadow-md: 0 4px 16px rgba(16,24,40,0.08), 0 1px 4px rgba(16,24,40,0.04);
+  --shadow-lg: 0 12px 32px rgba(16,24,40,0.12), 0 4px 8px rgba(16,24,40,0.06);
+  --shadow-xl: 0 24px 48px rgba(16,24,40,0.16);
+
+  --transition: 0.16s cubic-bezier(0.4,0,0.2,1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+h4, h5, h6 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+
+a { color: var(--accent); text-decoration: none; transition: opacity var(--transition); }
+a:hover { opacity: 0.75; }
+
+input, textarea, select {
+  font-family: var(--font-body);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-dim);
+  background: #fff;
+}
+input:hover:not(:focus), textarea:hover:not(:focus), select:hover:not(:focus) {
+  border-color: var(--border-dark);
+}
+input::placeholder, textarea::placeholder { color: var(--text-dim); }
+select option { background: #fff; color: var(--text); }
+
+button {
+  font-family: var(--font-display);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all var(--transition);
+  font-weight: 600;
+}
+button:active { transform: scale(0.98); }
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-dark); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+
+/* Leaflet */
+.leaflet-container { background: #dde8f0 !important; font-family: var(--font-body) !important; }
+.leaflet-popup-content-wrapper {
+  background: var(--bg-card) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: 0 !important;
+}
+.leaflet-popup-content { margin: 0 !important; }
+.leaflet-popup-tip { background: var(--bg-card) !important; }
+.leaflet-control-zoom { border: 1px solid var(--border) !important; border-radius: var(--radius-sm) !important; overflow: hidden; box-shadow: var(--shadow) !important; }
+.leaflet-control-zoom a { background: var(--bg-card) !important; color: var(--text-muted) !important; border-color: var(--border) !important; font-size: 16px !important; width: 32px !important; height: 32px !important; line-height: 32px !important; }
+.leaflet-control-zoom a:hover { background: var(--bg-raised) !important; color: var(--accent) !important; }
+.leaflet-attribution-flag { display: none !important; }
+/* Page titles and subtitles */
+.page-title {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.page-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
